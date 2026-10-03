@@ -1,33 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The Royal Spoon Restaurant &amp; Cafe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#141210">
+<title>The Royal Spoon Restaurant & Cafe</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#141210;--panel:#1d1a17;--ink:#f1e9d8;--mute:#a99f8c;--gold:#d4a84b;--line:#3a3329;--onGold:#141210;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#faf5ea;--panel:#fff;--ink:#241d12;--mute:#6f6450;--gold:#8a6414;--line:#e0d4b8;--onGold:#fff}}
-:root[data-theme="light"]{--bg:#faf5ea;--panel:#fff;--ink:#241d12;--mute:#6f6450;--gold:#8a6414;--line:#e0d4b8;--onGold:#fff}
-html{scroll-padding-top:70px;scroll-behavior:smooth}
+:root{
+  --bg:#141210;
+  --panel:#1d1a17;
+  --ink:#f1e9d8;
+  --mute:#a99f8c;
+  --gold:#d4a84b;
+  --line:#3a3329;
+  --green:#48a868;
+}
+
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Karla,system-ui,sans-serif}
-.serif{font-family:"Cormorant Garamond",Georgia,serif}
-header.hero{padding:56px 22px 40px;text-align:center;border-bottom:1px solid var(--line)}
-.hero h1{font:700 clamp(44px,12vw,92px)/.95 "Cormorant Garamond",Georgia,serif;margin:0;color:var(--gold);letter-spacing:.01em}
-.hero .sub{margin:14px 0 0;letter-spacing:.28em;font-size:13px;font-weight:600}
-.hero .tag{font:italic 500 24px "Cormorant Garamond",Georgia,serif;color:var(--mute);margin:10px 0 28px}
-.btn{display:inline-block;background:var(--gold);color:var(--onGold);padding:12px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:0;font-size:16px;cursor:pointer}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
-nav button{flex:none;background:none;border:1px solid var(--line);color:var(--ink);padding:8px 16px;border-radius:999px;font:600 15px Karla,sans-serif;cursor:pointer}
-nav button[aria-pressed="true"]{background:var(--gold);color:var(--onGold);border-color:var(--gold)}
-nav button:focus-visible,.btn:focus-visible,.add:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-main{max-width:760px;margin:0 auto;padding:28px 18px 130px}
-.tools{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;color:var(--mute);font-size:15px}
-.tools label{display:flex;gap:8px;align-items:center;cursor:pointer}
-section{margin-top:34px}
-section h2{font:700 38px/1 "Cormorant Garamond",Georgia,serif;color:var(--gold);margin:0 0 6px;padding-bottom:10px;border-bottom:2px solid var(--gold)}
-.item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px dotted var(--line)}
-.dot{flex:none;width:12px;height:12px;border:1.5px solid #3b9b4a;display:grid;place-items:center}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:400 16px/1.5 Karla,Arial,sans-serif;
+}
+
+button,input{font:inherit}
+
+.hero{
+  text-align:center;
+  padding:55px 20px 38px;
+  border-bottom:1px solid var(--line);
+}
+
+.hero h1{
+  margin:0;
+  color:var(--gold);
+  font:700 clamp(45px,12vw,85px)/.9 "Cormorant Garamond",Georgia,serif;
+}
+
+.sub{
+  margin-top:14px;
+  letter-spacing:.25em;
+  font-weight:600;
+  font-size:12px;
+}
+
+.tag{
+  color:var(--mute);
+  font:italic 500 23px "Cormorant Garamond",Georgia,serif;
+  margin:10px 0 25px;
+}
+
+.btn{
+  display:inline-block;
+  border:0;
+  background:var(--gold);
+  color:#141210;
+  padding:12px 25px;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:10px 14px;
+  background:rgba(20,18,16,.97);
+  border-bottom:1px solid var(--line);
+}
+
+nav button{
+  white-space:nowrap;
+  background:none;
+  color:var(--ink);
+  border:1px solid var(--line);
+  padding:8px 15px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+nav button.active{
+  background:var(--gold);
+  color:#141210;
+  border-color:var(--gold);
+}
+
+main{
+  max-width:760px;
+  margin:auto;
+  padding:25px 18px 150px;
+}
+
+.tools{
+  display:flex;
+  gap:10px;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  color:var(--mute);
+}
+
+.search{
+  width:100%;
+  padding:12px 15px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--ink);
+  outline:none;
+}
+
+section{margin-top:35px}
+
+section h2{
+  color:var(--gold);
+  font:700 37px/1 "Cormorant Garamond",Georgia,serif;
+  border-bottom:2px solid var(--gold);
+  padding-bottom:10px;
+  margin-bottom:5px;
+}
+
+.item{
+  display:flex;
+  gap:13px;
+  align-items:center;
+  padding:16px 0;
+  border-bottom:1px dotted var(--line);
+}
+
+.dot{
+  flex:none;
+  width:13px;
+  height:13px;
+  border:2px solid var(--green);
+}
+
+.item-info{
+  flex:1;
+  min-width:0;
+}
+
+.item-name{
+  font-weight:600;
+  font-size:18px;
+}
+
+.item-desc{
+  color:var(--mute);
+  font-size:13px;
+  margin-top:2px;
+}
+
+.price{
+  color:var(--gold);
+  font-weight:600;
+  margin-top:4px;
+}
+
+.add{
+  flex:none;
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  border-radius:20px;
+  padding:7px 13px;
+  cursor:pointer;
+}
+
+.add:hover{
+  background:var(--gold);
+  color:#141210;
+}
+
+.empty{
+  text-align:center;
+  color:var(--mute);
+  padding:30px 0;
+}
+
+.cart{
+  position:fixed;
+  left:12px;
+  right:12px;
+  bottom:12px;
+  z-index:20;
+  background:var(--panel);
+  border:1px solid var(--gold);
+  border-radius:18px;
+  padding:13px 15px;
+  box-shadow:0 8px 30px rgba(0,0,0,.45);
+}
+
+.cart-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.cart-title{
+  font-weight:600;
+}
+
+.cart-count{
+  color:var(--gold);
+}
+
+.cart-total{
+  font-size:18px;
+  font-weight:600;
+}
+
+.checkout{
+  width:100%;
+  margin-top:10px;
+  padding:12px;
+  border:0;
+  border-radius:25px;
+  background:var(--gold);
+  color:#141210;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:50;
+  background:rgba(0,0,0,.75);
+  padding:20px;
+  overflow:auto;
+}
+
+.modal-box{
+  max-width:500px;
+  margin:40px auto;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+}
+
+.modal h2{
+  color:var(--gold);
+  font:700 34px "Cormorant Garamond",Georgia,serif;
+  margin:0 0 15px;
+}
+
+.cart-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.qty button{
+  width:27px;
+  height:27px;
+  border:1px solid var(--line);
+  background:none;
+  color:var(--ink);
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.close{
+  float:right;
+  border:0;
+  background:none;
+  color:var(--mute);
+  font-size:25px;
+  cursor:pointer;
+}
+
+.order-note{
+  color:var(--mute);
+  font-size:13px;
+  margin-top:12px;
+}
+
+@media(max-width:500px){
+  .hero{padding-top:42px}
+  main{padding-left:15px;padding-right:15px}
+  .item-name{font-size:16px}
+  .add{padding:6px 11px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <h1>The Royal Spoon</h1>
+  <div class="sub">RESTAURANT &amp; CAFE</div>
+  <div class="tag">A royal taste in every bite</div>
+  <button class="btn" onclick="document.getElementById('menu').scrollIntoView()">
+    View Menu
+  </button>
+</header>
+
+<nav id="nav">
+  <button class="active" onclick="showCategory('all',this)">All</button>
+  <button onclick="showCategory('starters',this)">Starters</button>
+  <button onclick="showCategory('main',this)">Main Course</button>
+  <button onclick="showCategory('pizza',this)">Pizza</button>
+  <button onclick="showCategory('burger',this)">Burgers</button>
+  <button onclick="showCategory('dessert',this)">Desserts</button>
+  <button onclick="showCategory('drinks',this)">Drinks</button>
+</nav>
+
+<main id="menu">
+
+  <div class="tools">
+    <span>Our Menu</span>
+    <span id="itemCount"></span>
+  </div>
+
+  <input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="Search dishes..."
+    oninput="renderMenu()"
+  >
+
+  <div id="menuContainer"></div>
+
+</main>
+
+<div class="cart">
+  <div class="cart-top">
+    <div>
+      <div class="cart-title">Your Order</div>
+      <div class="cart-count" id="cartCount">0 items</div>
+    </div>
+    <div class="cart-total" id="cartTotal">₹0</div>
+  </div>
+  <button class="checkout" onclick="openCart()">View Order</button>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+
+    <button class="close" onclick="closeCart()">×</button>
+
+    <h2>Your Order</h2>
+
+    <div id="cartItems"></div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:18px;font-size:20px">
+      <strong>Total</strong>
+      <strong id="modalTotal">₹0</strong>
+    </div>
+
+    <button class="checkout" onclick="placeOrder()">
+      Place Order
+    </button>
+
+    <div class="order-note">
+      Demo restaurant menu — connect this button to WhatsApp,
+      a payment gateway or your restaurant ordering system later.
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+const menu = [
+
+  {
+    category:"starters",
+    title:"Starters",
+    items:[
+      ["Paneer Tikka","Grilled cottage cheese with Indian spices",220],
+      ["Veg Spring Rolls","Crispy rolls with fresh vegetables",160],
+      ["French Fries","Golden crispy fries",120],
+      ["Chicken Tikka","Juicy grilled chicken pieces",280]
+    ]
+  },
+
+  {
+    category:"main",
+    title:"Main Course",
+    items:[
+      ["Paneer Butter Masala","Paneer cooked in rich tomato gravy",240],
+      ["Dal Makhani","Slow cooked black lentils with butter",190],
+      ["Kadhai Paneer","Paneer with peppers and Indian spices",230],
+      ["Butter Chicken","Classic creamy tomato chicken curry",290],
+      ["Veg Biryani","Fragrant basmati rice with vegetables",210],
+      ["Chicken Biryani","Aromatic basmati rice with tender chicken",270]
+    ]
+  },
+
+  {
+    category:"pizza",
+    title:"Pizza",
+    items:[
+      ["Margherita Pizza","Classic tomato, cheese and herbs",199],
+      ["Farmhouse Pizza","Fresh vegetables and mozzarella",249],
+      ["Paneer Tikka Pizza","Paneer tikka with cheese and spices",279],
+      ["Chicken Supreme Pizza","Chicken, vegetables and cheese",299]
+    ]
+  },
+
+  {
+    category:"burger",
+    title:"Burgers",
+    items:[
+      ["Classic Veg Burger","Crispy veg patty with fresh salad",129],
+      ["Cheese Burger","Classic burger with melted cheese",159],
+      ["Paneer Burger","Spicy paneer patty with creamy sauce",179],
+      ["Chicken Burger","Crispy chicken patty with fresh salad",199]
+    ]
+  },
+
+  {
+    category:"dessert",
+    title:"Desserts",
+    items:[
+      ["Gulab Jamun","Soft milk dumplings in sugar syrup",90],
+      ["Brownie","Warm chocolate brownie",130],
+      ["Ice Cream","Two scoops of your choice",110],
+      ["Chocolate Cake","Rich chocolate cake slice",150]
+    ]
+  },
+
+  {
+    category:"drinks",
+    title:"Drinks",
+    items:[
+      ["Masala Chai","Indian spiced tea",60],
+      ["Cold Coffee","Chilled creamy coffee",120],
+      ["Fresh Lime Soda","Refreshing sweet and salty soda",90],
+      ["Mango Shake","Thick fresh mango shake",140],
+      ["Mineral Water","Packaged drinking water",30]
+    ]
+  }
+
+];
+
+let selectedCategory = "all";
+let cart = {};
+
+function showCategory(category,button){
+
+  selectedCategory = category;
+
+  document.querySelectorAll("nav button")
+    .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  renderMenu();
+
+  document.getElementById("menu")
+    .scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function renderMenu(){
+
+  const container = document.getElementById("menuContainer");
+  const search = document.getElementById("search").value.toLowerCase().trim();
+
+  container.innerHTML = "";
+
+  let visibleItems = 0;
+
+  menu.forEach(section => {
+
+    if(selectedCategory !== "all" &&
+       selectedCategory !== section.category) return;
+
+    const filtered = section.items.filter(item =>
+      item[0].toLowerCase().includes(search) ||
+      item[1].toLowerCase().includes(search)
+    );
+
+    if(filtered.length === 0) return;
+
+    visibleItems += filtered.length;
+
+    const sec = document.createElement("section");
+
+    sec.innerHTML = `<h2>${section.title}</h2>`;
+
+    filtered.forEach(item => {
+
+      const [name,description,price] = item;
+
+      const div = document.createElement("div");
+
+      div.className = "item";
+
+      div.innerHTML = `
+        <div class="dot"></div>
+
+        <div class="item-info">
+          <div class="item-name">${name}</div>
+          <div class="item-desc">${description}</div>
+          <div class="price">₹${price}</div>
+        </div>
+
+        <button class="add"
+          onclick="addToCart('${escapeQuotes(name)}',${price})">
+          + Add
+        </button>
+      `;
+
+      sec.appendChild(div);
+
+    });
+
+    container.appendChild(sec);
+
+  });
+
+  document.getElementById("itemCount").textContent =
+    visibleItems + " dishes";
+
+  if(visibleItems === 0){
+
+    container.innerHTML = `
+      <div class="empty">
+        No dishes found.
+      </div>
+    `;
+
+  }
+
+}
+
+function escapeQuotes(text){
+  return text.replace(/'/g,"\\'");
+}
+
+function addToCart(name,price){
+
+  if(cart[name]){
+    cart[name].qty++;
+  }else{
+    cart[name]={
+      price:price,
+      qty:1
+    };
+  }
+
+  updateCart();
+
+}
+
+function removeFromCart(name){
+
+  if(!cart[name]) return;
+
+  cart[name].qty--;
+
+  if(cart[name].qty <= 0){
+    delete cart[name];
+  }
+
+  updateCart();
+  renderCart();
+
+}
+
+function updateCart(){
+
+  let count=0;
+  let total=0;
+
+  Object.keys(cart).forEach(name=>{
+    count += cart[name].qty;
+    total += cart[name].qty * cart[name].price;
+  });
+
+  document.getElementById("cartCount").textContent =
+    count + (count === 1 ? " item" : " items");
+
+  document.getElementById("cartTotal").textContent =
+    "₹" + total;
+
+  document.getElementById("modalTotal").textContent =
+    "₹" + total;
+
+}
+
+function openCart(){
+
+  renderCart();
+
+  document.getElementById("modal").style.display="block";
+
+}
+
+function closeCart(){
+
+  document.getElementById("modal").style.display="none";
+
+}
+
+function renderCart(){
+
+  const box=document.getElementById("cartItems");
+
+  box.innerHTML="";
+
+  const names=Object.keys(cart);
+
+  if(names.length===0){
+
+    box.innerHTML=`
+      <div class="empty">
+        Your order is empty.
+      </div>
+    `;
+
+    return;
+  }
+
+  names.forEach(name=>{
+
+    const product=cart[name];
+
+    const row=document.createElement("div");
+
+    row.className="cart-row";
+
+    row.innerHTML=`
+
+      <div>
+        <strong>${name}</strong>
+        <div style="color:var(--mute)">
+          ₹${product.price} × ${product.qty}
+        </div>
+      </div>
+
+      <div class="qty">
+        <button onclick="removeFromCart('${escapeQuotes(name)}')">−</button>
+        <span style="padding:0 8px">${product.qty}</span>
+        <button onclick="addToCart('${escapeQuotes(name)}',${product.price})">+</button>
+      </div>
+
+    `;
+
+    box.appendChild(row);
+
+  });
+
+}
+
+function placeOrder(){
+
+  const count=Object.keys(cart).length;
+
+  if(count===0){
+
+    alert("Please add at least one item.");
+    return;
+
+  }
+
+  alert(
+    "Order received!\\n\\n" +
+    "This is a demo ordering page. " +
+    "Connect it to WhatsApp/payment/order backend for real orders."
+  );
+
+}
+
+document.getElementById("modal").addEventListener("click",function(e){
+
+  if(e.target === this){
+    closeCart();
+  }
+
+});
+
+renderMenu();
+updateCart();
+
+</script>
+
+</body>
+  </html>
