@@ -1,1 +1,33 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Royal Spoon Restaurant &amp; Cafe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141210;--panel:#1d1a17;--ink:#f1e9d8;--mute:#a99f8c;--gold:#d4a84b;--line:#3a3329;--onGold:#141210;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#faf5ea;--panel:#fff;--ink:#241d12;--mute:#6f6450;--gold:#8a6414;--line:#e0d4b8;--onGold:#fff}}
+:root[data-theme="light"]{--bg:#faf5ea;--panel:#fff;--ink:#241d12;--mute:#6f6450;--gold:#8a6414;--line:#e0d4b8;--onGold:#fff}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Karla,system-ui,sans-serif}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+header.hero{padding:56px 22px 40px;text-align:center;border-bottom:1px solid var(--line)}
+.hero h1{font:700 clamp(44px,12vw,92px)/.95 "Cormorant Garamond",Georgia,serif;margin:0;color:var(--gold);letter-spacing:.01em}
+.hero .sub{margin:14px 0 0;letter-spacing:.28em;font-size:13px;font-weight:600}
+.hero .tag{font:italic 500 24px "Cormorant Garamond",Georgia,serif;color:var(--mute);margin:10px 0 28px}
+.btn{display:inline-block;background:var(--gold);color:var(--onGold);padding:12px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:0;font-size:16px;cursor:pointer}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+nav button{flex:none;background:none;border:1px solid var(--line);color:var(--ink);padding:8px 16px;border-radius:999px;font:600 15px Karla,sans-serif;cursor:pointer}
+nav button[aria-pressed="true"]{background:var(--gold);color:var(--onGold);border-color:var(--gold)}
+nav button:focus-visible,.btn:focus-visible,.add:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+main{max-width:760px;margin:0 auto;padding:28px 18px 130px}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;color:var(--mute);font-size:15px}
+.tools label{display:flex;gap:8px;align-items:center;cursor:pointer}
+section{margin-top:34px}
+section h2{font:700 38px/1 "Cormorant Garamond",Georgia,serif;color:var(--gold);margin:0 0 6px;padding-bottom:10px;border-bottom:2px solid var(--gold)}
+.item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px dotted var(--line)}
+.dot{flex:none;width:12px;height:12px;border:1.5px solid #3b9b4a;display:grid;place-items:center}
